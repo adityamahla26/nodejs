@@ -6,16 +6,20 @@ const myServer = http.createServer((req, res) => {
     return res.end();
   }
   console.log("New request received");
-  const log = `${Date.now()} ${req.url} New Request Received\n`; //install npm i url package to parse the url
+  const log = `${Date.now()} ${req.method} ${req.url} New Request Received\n`; //install npm i url package to parse the url
   const myUrl = url.parse(req.url, true);
-
+  const method = req.method;
   fs.appendFile("./test.txt", log, (err, data) => {
     switch (myUrl.pathname) {
       case "/":
-        res.end(`Hello from home`);
+        if (method === "GET") res.end(`Hello from home`);
         break;
       case "/about":
-        res.end(`Hello ${myUrl.query.name}`);
+        if (method === "GET") {
+          res.end(`Hello ${myUrl.query.name}`);
+        } else if (method === "POST") {
+          res.end("Success with the post request");
+        }
         break;
       case "/search":
         res.end(`Serach results for ${myUrl.query.search_query}`);
