@@ -1,7 +1,7 @@
 {
-  "name": "nodejs",
+  "name": "apiproject",
   "version": "1.0.0",
-  "description": "node ",
+  "description": "creating an api",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -14,4 +14,3 @@
     "express": "^4.21.2"
   }
 }
-jh
