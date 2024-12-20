@@ -35,6 +35,9 @@ app.get("/users", (req, res) => {
 app
   .route("/api/users")
   .get((req, res) => {
+    //Adding custom http header
+    console.log(req.headers);
+    res.setHeader("username", "abc");
     return res.json(users);
   })
   .post((req, res) => {
