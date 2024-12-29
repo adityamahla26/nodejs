@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home Page</title>
+  </head>
+  <body>
+    <% if(locals.id){%>
+      <p><%= locals.id %></p>
+    <% } %>
+    <form method="POST" action="/api/url/create">
+      <input name="url" placeholder="https://example.com" type="text" />
+      <button type="submit">Generate</button>
+    </form>
+  </body>
+</html>

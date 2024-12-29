@@ -14,7 +14,7 @@ export async function handleCreateShortId(req, res) {
     visitHistory: [],
   });
 
-  return res.json({ id: shortId });
+  return res.render("home", { id: shortId });
 }
 
 export async function handleGetRequiredId(req, res) {
@@ -31,4 +31,9 @@ export async function handleAnalytics(req, res) {
   const url = await Url.findOne({ shortId });
 
   return res.send({ totalClicks: url.visitHistory.length, url: url });
+}
+
+export async function handleGetHtmlPage(req, res) {
+  const allUrl = await Url.find({});
+  return res.render("home", { urls: allUrl });
 }

@@ -1,1 +1,2 @@
 npm i nanoid
+npm i ejs -> template engine/ view engine
