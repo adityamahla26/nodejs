@@ -1,9 +1,11 @@
 import express from "express";
-
 const router = express.Router();
 
-router.get("/", (req, res) => {
-  res.render("home");
+import { Url } from "../models/url.js";
+
+router.get("/", async (req, res) => {
+  const allUrl = await Url.find({});
+  res.render("home", { urls: allUrl });
 });
 
 export default router;

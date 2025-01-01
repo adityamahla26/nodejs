@@ -13,5 +13,25 @@
       <input name="url" placeholder="https://example.com" type="text" />
       <button type="submit">Generate</button>
     </form>
+    <% if(locals.urls){ %>
+      <table>
+        <thead>
+          <tr>
+            <th>ShortId</th>
+            <th>redirectId</th>
+            <th>visitHistory</th>
+          </tr>
+        </thead>
+        <tbody>
+          <%locals.urls.forEach(url=>{%>
+            <tr>
+              <td><%= url.shortId %></td>
+              <td><%= url.redirectUrl %></td>
+              <td><%= url.visitHistory.length %></td>
+            </tr>
+          <% }) %>
+        </tbody>
+      </table>
+    <% } %>
   </body>
 </html>
