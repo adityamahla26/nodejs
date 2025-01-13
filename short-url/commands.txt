@@ -2,3 +2,4 @@ npm i nanoid
 npm i ejs -> template engine/ view engine
 npm i uuid -> create session id
 npm i cookie-parser -> parse cookie
+npm i jsonwebtoken -> stateless authentication
