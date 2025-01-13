@@ -1,3 +1,4 @@
+import { Types } from "mongoose";
 import { Url } from "../models/url.js";
 
 import { nanoid } from "nanoid";
@@ -12,6 +13,7 @@ export async function handleCreateShortId(req, res) {
     shortId: shortId,
     redirectUrl: body.url,
     visitHistory: [],
+    createdBy: req.user._id,
   });
 
   return res.render("home", { id: shortId });
